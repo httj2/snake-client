@@ -14,6 +14,11 @@ const connect = function() {
  conn.on('data', (data) => {
    console.log('Server: ', data);
  });
+//  "connect" event is triggered on a connection as soon as it is successfully established.
+ conn.on('connect', () => {
+  console.log("we are connected!" )
+  conn.write("Name: JHJ");
+});
  return conn;
 }
 
