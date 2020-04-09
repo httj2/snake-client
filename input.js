@@ -1,5 +1,5 @@
 const stdin = process.stdin;
-let connection; 
+let connection;
 
 const setupInput = (conn) => {
   connection = conn;
@@ -8,32 +8,30 @@ const setupInput = (conn) => {
   stdin.resume();
   handleUserInput();
   return stdin;
- }
+};
  
 const handleUserInput = () => {
   stdin.on('data', (key) => {
-     if (key === '\u0003') {
-      process.exit(); 
+    if (key === '\u0003') {
+      process.exit();
     }
+  });
   stdin.on('data', (key) => {
     if (key === 'w') {
-      // console.log('up')
-      connection.write("Move: up")
+      connection.write("Move: up");
     }
     if (key === 'a') {
-      connection.write("Move: left")
+      connection.write("Move: left");
     }
     if (key === 's') {
-      connection.write("Move: down")
+      connection.write("Move: down");
     }
     if (key === 'd') {
-      connection.write("Move: right")
+      connection.write("Move: right");
     }
   });
-  });
   return stdin;
- 
- }
+};
  
 
- module.exports = {setupInput};
+module.exports = {setupInput};
